@@ -29,7 +29,7 @@ class DatabaseHandler():
     @staticmethod
     def read_students():
         with DatabaseHandler._connection() as conn:
-            return conn.execute("SELECT * FROM STUDENTS").fetchall()
+            return conn.execute("SELECT * FROM STUDENT").fetchall()
         
 
 DatabaseHandler.create_table()

@@ -1,5 +1,6 @@
 import tkinter
 import regestration_form as rf
+from student_listing import StudentListing
 
 class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class from tkinter library
     def __init__(self):
@@ -13,9 +14,14 @@ class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class f
         title_label.pack(side = 'top', fill='x')
 
 
-        self.regestration_form = rf.RegestrationForm(self)
+        self.regestration_form = rf.RegestrationForm(self, self.refresh_students)
         self.regestration_form.pack(side='left', fill='y', padx=10, pady=10)
 
+        self.student_listing = StudentListing(self)
+        self.student_listing.pack(side='right', fill='both', padx=10, pady=10, expand=True)
+
+    def refresh_students(self):
+        self.student_listing.load_students()
 
 if __name__ == "__main__":
     app = MainApplication()

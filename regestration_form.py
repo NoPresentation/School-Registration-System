@@ -1,11 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
 import database_handler as db
+from student_listing import StudentListing
 
 class RegestrationForm(tk.Frame):
     
-    def __init__(self, parent):
+    def __init__(self, parent, refresh_callback):
         super().__init__(parent, padx=10, pady=10)
+
+        self.refresh_callback = refresh_callback
 
         tk.Label(self, text = 'Full Name', ).pack(fill='x')
         self.name_entry = tk.Entry(self)
@@ -22,8 +25,7 @@ class RegestrationForm(tk.Frame):
         tk.Label(self, text = 'Gender', ).pack(fill = 'x')
         self.gender = tk.StringVar()
         tk.Radiobutton(self,text = 'Male' ,variable = self.gender ,value= 'Male').pack(anchor='w')
-        tk.Radiobutton(self, text = 'Female', variable = self.gender, value = 'Female' ).pack(anchor='w')
-
+        tk.Radiobutton(self,text = 'Female' ,variable = self.gender ,value= 'Female').pack(anchor='w')
         self.submit_button = tk.Button(self, text='Submit', command = self.submit_data).pack()
 
 
@@ -36,6 +38,7 @@ class RegestrationForm(tk.Frame):
         if name and email and age and gender:
             db.DatabaseHandler.insert_student(name, email, age, gender)
             self.clear_form()
+            self.refresh_callback()
 
 
     def clear_form(self):
