@@ -1,4 +1,5 @@
 import tkinter
+import regestration_form as rf
 
 class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class from tkinter library
     def __init__(self):
@@ -11,6 +12,9 @@ class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class f
         title_label = tkinter.Label(self, text = 'School Regestration System', font = ('Helvetica', 16))
         title_label.pack(side = 'top', fill='x')
 
+
+        self.regestration_form = rf.RegestrationForm(self)
+        self.regestration_form.pack(side='left')
 
 
 if __name__ == "__main__":
