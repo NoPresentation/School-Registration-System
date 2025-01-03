@@ -5,24 +5,24 @@ import database_handler as db
 class RegestrationForm(tk.Frame):
     
     def __init__(self, parent):
-        super().__init__(parent)
+        super().__init__(parent, padx=10, pady=10)
 
-        tk.Label(self, text = 'Full Name', ).pack()
+        tk.Label(self, text = 'Full Name', ).pack(fill='x')
         self.name_entry = tk.Entry(self)
         self.name_entry.pack()
 
-        tk.Label(self, text = 'Email').pack()
+        tk.Label(self, text = 'Email').pack(fill='x')
         self.email_entry = tk.Entry(self)
         self.email_entry.pack()
 
-        tk.Label(self, text = 'Age', ).pack()
+        tk.Label(self, text = 'Age', ).pack(fill='x')
         self.age_box = ttk.Spinbox(self, from_= 6, to=20)
         self.age_box.pack()
 
-        tk.Label(self, text = 'Gender', ).pack()
+        tk.Label(self, text = 'Gender', ).pack(fill = 'x')
         self.gender = tk.StringVar()
-        tk.Radiobutton(self,text = 'Male' ,variable = self.gender ,value= 'Male').pack()
-        tk.Radiobutton(self, text = 'Female', variable = self.gender, value = 'Female' ).pack()
+        tk.Radiobutton(self,text = 'Male' ,variable = self.gender ,value= 'Male').pack(anchor='w')
+        tk.Radiobutton(self, text = 'Female', variable = self.gender, value = 'Female' ).pack(anchor='w')
 
         self.submit_button = tk.Button(self, text='Submit', command = self.submit_data).pack()
 

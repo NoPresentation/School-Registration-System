@@ -14,7 +14,7 @@ class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class f
 
 
         self.regestration_form = rf.RegestrationForm(self)
-        self.regestration_form.pack(side='left')
+        self.regestration_form.pack(side='left', fill='y', padx=10, pady=10)
 
 
 if __name__ == "__main__":
