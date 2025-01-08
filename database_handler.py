@@ -3,12 +3,11 @@ import sqlite3
 class DatabaseHandler():
     DB_NAME = "students.db"
 
-
+    # Getting database connection
     @staticmethod
     def _connection():
         return sqlite3.connect(DatabaseHandler.DB_NAME)
     
-
     @staticmethod
     def create_table():
         with DatabaseHandler._connection() as conn:
@@ -42,4 +41,4 @@ class DatabaseHandler():
             return conn.execute("SELECT COUNT(*) FROM STUDENT WHERE GENDER = 'Female'").fetchone()[0]
         
 
-DatabaseHandler.create_table()
+DatabaseHandler.create_table() # If the database does not exist, the program will create it without causing any errors.
