@@ -1,5 +1,7 @@
 import tkinter
 import regestration_form as rf
+import matplotlib as mpl
+from piechart import Pie
 from student_listing import StudentListing
 
 class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class from tkinter library
@@ -19,6 +21,9 @@ class MainApplication(tkinter.Tk): # Now, our main class inherits the TK class f
 
         self.student_listing = StudentListing(self)
         self.student_listing.pack(side='right', fill='both', padx=10, pady=10, expand=True)
+
+        
+    
 
     def refresh_students(self):
         self.student_listing.load_students()

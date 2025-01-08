@@ -31,5 +31,15 @@ class DatabaseHandler():
         with DatabaseHandler._connection() as conn:
             return conn.execute("SELECT * FROM STUDENT").fetchall()
         
+    @staticmethod
+    def get_male():
+        with DatabaseHandler._connection() as conn:
+            return conn.execute("SELECT COUNT(*) FROM STUDENT WHERE GENDER = 'Male'").fetchone()[0]
+        
+    @staticmethod
+    def get_female():
+        with DatabaseHandler._connection() as conn:
+            return conn.execute("SELECT COUNT(*) FROM STUDENT WHERE GENDER = 'Female'").fetchone()[0]
+        
 
 DatabaseHandler.create_table()

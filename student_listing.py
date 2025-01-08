@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from database_handler import DatabaseHandler
+from piechart import Pie
 
 class StudentListing(tk.Frame):
     def __init__(self, parent):
@@ -16,6 +17,10 @@ class StudentListing(tk.Frame):
         self.table.heading('Age', text='Age')
         self.table.heading('Gender', text='Gender')
         self.table.pack(fill=tk.BOTH, expand=True)
+        
+        
+        self.pie_chart = Pie(self)
+        self.pie_chart.pack(side='right', fill='x', padx=10, pady = 10)
         
         self.load_students()
 
