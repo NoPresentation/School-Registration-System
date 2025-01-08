@@ -11,6 +11,8 @@ class MainApplication(tk.Tk): # Our main class inherits the TK class from tkinte
         self.title("Student Management System")
         self.geometry("900x600")
         self.create_widgets() 
+
+        # Hint to use the program in full-screen mode in order to show the table properly
         messagebox.showinfo(title='Hint', message='Use the program in full-screen mode :)')
 
     def create_widgets(self):
